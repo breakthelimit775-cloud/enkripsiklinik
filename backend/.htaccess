@@ -1,0 +1,19 @@
+# ============================================================
+# .htaccess untuk Backend PHP Klinik
+# Server: Apache (XAMPP/Laragon)
+# ============================================================
+
+# Aktifkan mod_rewrite
+Options -Indexes
+Options +FollowSymLinks
+
+# Header CORS (untuk development)
+Header always set Access-Control-Allow-Origin "http://localhost:5173"
+Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type, Authorization"
+Header always set Access-Control-Allow-Credentials "true"
+
+# Handle preflight OPTIONS
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=204,L]
